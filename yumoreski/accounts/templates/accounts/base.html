@@ -12,13 +12,17 @@
 
 <body>
 <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-    <span class="fs-4">Юморэски</span>
+    <span class="fs-4" style="margin-left: 20px">Юморэски</span>
     <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'main' %}">Гланая</a>
         <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'feed' %}">Юморэски</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'add' %}">Рассказать юморэску</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'login' %}">Вход</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'register' %}">Регистрация</a>
+        {% if user.is_authenticated %}
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'add' %}">Рассказать юморэску</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'logout' %}">Выход</a>
+        {% else %}
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'login' %}">Вход</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'register' %}">Регистрация</a>
+        {% endif %}
         <a class="me-3 py-2 text-dark text-decoration-none" href="https://youtu.be/dQw4w9WgXcQ">Ого, кнопка</a>
     </nav>
 </div>

@@ -5,5 +5,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>Главная. Здесь будут редиректы куда надо.</h1>
+<h1>Главная</h1>
+<div>
+    {% if user.is_authenticated %}
+        <span>Здравствуйте, {{ user.username}}!</span>
+    {% else %}
+        <span>Вы не вошли в Аккаунт!</span><br/>
+        <a href="{% url 'login' %}">Войти</a> или <a href="{% url 'register' %}">Зарегестрироваться</a>
+    {% endif %}
+</div>
 {% endblock %}
