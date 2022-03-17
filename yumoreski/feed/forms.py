@@ -1,5 +1,5 @@
 from .models import Jokes
-from django.forms import ModelForm, Textarea, TextInput
+from django.forms import ModelForm, Textarea
 
 
 class JokesForm(ModelForm):

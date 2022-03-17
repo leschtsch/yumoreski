@@ -10,6 +10,9 @@ def feed(request):
 
 
 def add(request):
+    if not request.user.is_authenticated:
+        return redirect('main')
+
     if request.method == 'POST':
         form = JokesForm(request.POST)
         if form.is_valid():
